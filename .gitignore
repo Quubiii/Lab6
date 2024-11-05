@@ -1,3 +1,6 @@
 *
 !/src
 !.gitignore
+Lab6.iml
+/out
+.idea
