@@ -3,6 +3,7 @@ public class Book {
     private String author;
     private String isbn;
     private boolean isAvailable;
+    private String type;
 
     //Getters
     public String getTitle() {
@@ -21,6 +22,10 @@ public class Book {
         return isAvailable;
     }
 
+    public String getType() {
+        return type;
+    }
+
     //Setters
     public void setTitle(String title) {
         this.title = title;
@@ -36,30 +41,31 @@ public class Book {
 
     //No setter for availability - fully controlled by borrowing and returning
 
-    public Book(String title, String author, String isbn, boolean isAvailable) {
+    public Book(String title, String author, String isbn, boolean isAvailable, String type) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.isAvailable = isAvailable;
+        this.type = type;
     }
     public boolean borrow() {
         if(isAvailable) {
             isAvailable = false;
-            System.out.println("Successfully borrowed [" + title + " by " + author + "]");
+            System.out.println("Successfully borrowed [" + title + " by " + author + "] " + type);
             return true;
         } else {
-            System.out.println("Book [" + title + " by " + author + "] is already borrowed!");
+            System.out.println("Book [" + title + " by " + author + "] " + type + " is already borrowed!");
             return false;
         }
     }
 
     public boolean returnBook() {
         if(isAvailable) {
-            System.out.println("Book [" + title + " by " + author + "] is not borrowed!");
+            System.out.println("Book [" + title + " by " + author + "] " + type + " is not borrowed!");
             return false;
         } else {
             isAvailable = true;
-            System.out.println("Successfully returned [" + title + " by " + author + "]");
+            System.out.println("Successfully returned [" + title + " by " + author + "] " + type);
             return true;
         }
     }

@@ -1,14 +1,20 @@
 public class Ebook extends Book {
     private double fileSizeMB;
+    private String type;
 
-    public Ebook(String title, String author, String isbn, boolean isAvailable, double fileSizeMB) {
-        super(title, author, isbn, isAvailable);
+    public Ebook(String title, String author, String isbn, boolean isAvailable, double fileSizeMB, String type) {
+        super(title, author, isbn, isAvailable, type);
         this.fileSizeMB = fileSizeMB;
+        this.type = type;
     }
 
     //Getter
     public double getFileSizeMB() {
         return fileSizeMB;
+    }
+
+    public String getType() {
+        return type;
     }
 
     //Setter
@@ -17,7 +23,9 @@ public class Ebook extends Book {
     }
 
     public void displayInfo() {
-        super.displayInfo();
-        System.out.println("File size: " + fileSizeMB);
+        System.out.println("----------------------------\n" +
+                "Title: " + super.getTitle() + " " + type + "\nAuthor: " + super.getAuthor() + "\nISBN: " + super.getIsbn()+ "\nAvailable: " + super.getAvailability() + "\nFile size [MB]: " + fileSizeMB
+                + "\n----------------------------"
+        );
     }
 }
