@@ -1,5 +1,6 @@
 *
 !/src
+!/src/AudioBook.java
 !.gitignore
 Lab6.iml
 /out
